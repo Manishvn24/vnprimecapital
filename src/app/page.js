@@ -3,7 +3,7 @@ import Contact from "./(Home)/Contact"
 import Footer from "./(Home)/Footer"
 import Hero from "./(Home)/Hero"
 import LoanServices from "./(Home)/LoanServices"
-import Process from "./(Home)/Process"
+import Process from "./(Home)/Process2"
 import Stats from "./(Home)/Stats"
 import Testimonials from "./(Home)/Testimonials"
 import WhoWeServe from "./(Home)/WhoWeServe"
@@ -22,7 +22,7 @@ const Home = () => {
         COLOR_UPDATE_SPEED={8}
         SHADING
         RAINBOW_MODE={false}
-        COLOR="#2563EB"
+        COLOR="#2563EB"np 
       />
 
       <div className="relative z-10">
