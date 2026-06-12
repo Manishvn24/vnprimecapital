@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "-": "^0.0.1-security.1",
     "@tabler/icons-react": "^3.44.0",
     "baseline-browser-mapping": "^2.10.35",
     "class-variance-authority": "^0.7.1",
