@@ -16,76 +16,76 @@ import Masonry from "../Masonry";
 const items = [
   {
     id: "1",
-    img: "/collage/building.jpg",
+    img: "/collage/building.avif",
     url: "https://example.com/one",
     height: 250,
   },
   {
     id: "10",
-    img: "/collage/airplane.jpg",
+    img: "/collage/airplane.avif",
     url: "https://example.com/three",
     height: 600,
   },
   {
     id: "2",
-    img: "/collage/class1.jpg",
+    img: "/collage/class1.avif",
     url: "https://example.com/two",
     height: 250,
   },
   {
     id: "3",
-    img: "/collage/smilingdr.jpg",
+    img: "/collage/smilingdr.avif",
     url: "https://example.com/three",
     height: 300,
   },
   {
     id: "4",
-    img: "/collage/newspaper.jpg",
+    img: "/collage/newspaper.avif",
     url: "https://example.com/three",
     height: 400,
   },
   {
     id: "5",
-    img: "/collage/drgirl.jpg",
+    img: "/collage/drgirl.avif",
     url: "https://example.com/three",
     height: 350,
   },
   {
     id: "6",
-    img: "/collage/engineer.jpg",
+    img: "/collage/engineer.avif",
     url: "https://example.com/three",
     height: 400,
   },
   {
     id: "7",
-    img: "/collage/startup1.jpg",
+    img: "/collage/startup1.avif",
     url: "https://example.com/three",
     height: 300,
   },
 
   {
     id: "12",
-    img: "/collage/spectro.jpg",
+    img: "/collage/spectro.avif",
     url: "https://example.com/three",
     height: 400,
   },
 
   {
     id: "9",
-    img: "/collage/newhouse.jpg",
+    img: "/collage/newhouse.avif",
     url: "https://example.com/three",
     height: 400,
   },
 
   {
     id: "11",
-    img: "/collage/bike.jpg",
+    img: "/collage/bike.avif",
     url: "https://example.com/three",
     height:350,
   },
   {
     id: "13",
-    img: "/collage/student.jpg",
+    img: "/collage/student.avif",
     url: "https://example.com/three",
     height: 250,
   },
