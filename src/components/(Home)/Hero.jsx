@@ -195,14 +195,14 @@ console.log(data);
             >
               <form onSubmit={onSubmit}>
                 <div className="flex w-full h-14  overflow-hidden rounded-xl border border-primary bg-background/60 backdrop-blur-sm">
-                  <div className="flex items-center border-2 border-black px-4 text-sm font-semibold text-muted-foreground">
+                  <div className="flex items-center px-4 text-sm font-semibold text-muted-foreground">
                     +91
                   </div>
 
                   <Input
                     type="tel"
                     name="phone"
-                    placeholder="Enter mobile number"
+                    placeholder="Phone"
                     className="h-full px-4 border-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
                     required
                   />
