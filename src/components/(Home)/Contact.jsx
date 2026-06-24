@@ -221,7 +221,7 @@ export default function Contact() {
               <div className="rounded-3xl border border-border/50 bg-card/40 p-8 backdrop-blur-xl">
                 {/* Title */}
                 <h3 className="mb-6 text-2xl font-bold text-foreground">
-                  Apply for a Loan
+                  Get Pre-Qualified Offers
                 </h3>
                 <form onSubmit={handleSubmit}>
                   {/* Inputs */}
@@ -302,7 +302,7 @@ export default function Contact() {
 
                   {/* Submit */}
                   <button
-                  type="submit"
+                    type="submit"
                     disabled={
                       loading ||
                       !formData.name ||

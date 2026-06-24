@@ -67,7 +67,7 @@ function LogoRow({ reverse = false, duration = 30 }) {
             key={bank.name + index}
             className="group flex h-16 w-[220px] flex-shrink-0 items-center justify-center rounded-3xl border border-border/50 bg-card/40 px-8 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/60"
           >
-            <div className="relative h-12 w-full grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100">
+            <div className="relative h-12 w-full  opacity-70 transition-all duration-300  group-hover:opacity-100">
               <Image
                 src={bank.logo}
                 alt={bank.name}
@@ -85,7 +85,6 @@ function LogoRow({ reverse = false, duration = 30 }) {
 export default function BankLogoTicker() {
   return (
     <section className="relative overflow-hidden bg-background">
-
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-14 px-6 text-center">

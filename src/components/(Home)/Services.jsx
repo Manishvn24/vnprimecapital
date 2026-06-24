@@ -7,28 +7,13 @@ import {
   UserCircle,
   ArrowRight,
   BadgePercent,
+  Briefcase,
 } from "lucide-react";
 
 import ScrollStack, { ScrollStackItem } from "../ScrollStack";
 
 import Link from "next/link";
 const loanProducts = [
-  {
-    icon: GraduationCap,
-    tag: "Education Finance",
-    title: "Education Loan",
-    description:
-      "Invest in your future with education loans for top institutions in India and abroad.",
-    features: [
-      "Covers tuition + living expenses",
-      "Study in India & abroad",
-      "Moratorium during course",
-      "Tax benefit under Sec 80E",
-    ],
-    rate: "Starting 8.5% p.a.",
-    amount: "Up to ₹1Cr",
-    popular: false,
-  },
   {
     icon: CreditCard,
     tag: "Business Credit",
@@ -41,10 +26,27 @@ const loanProducts = [
       "Linked to current/savings account",
       "Instant top-up available",
     ],
-    rate: "Starting 10.5% p.a.",
-    amount: "Up to ₹50L",
+    rate: "",
+    amount: "Up to ₹1Cr",
     popular: true,
   },
+  {
+    icon: Briefcase,
+    tag: "Business Finance",
+    title: "Business Loan",
+    description:
+      "Fuel your business growth with flexible financing for expansion, inventory, working capital, and new opportunities.",
+    features: [
+      "Minimal documentation",
+      "Quick approvals & disbursals",
+      "Flexible repayment options",
+      "No collateral options available",
+    ],
+    rate: "",
+    amount: "Up to ₹5Cr",
+    popular: false,
+  },
+
   {
     icon: UserCircle,
     tag: "Personal Credit",
@@ -57,8 +59,8 @@ const loanProducts = [
       "Flexible tenure 12–60 months",
       "Pre-payment facility available",
     ],
-    rate: "Starting 10.99% p.a.",
-    amount: "Up to ₹40L",
+    rate: "Starting 9.99% p.a.",
+    amount: "Up to ₹1cr",
     popular: false,
   },
 ];
@@ -215,7 +217,7 @@ export default function LoanServices() {
                         : "border border-border bg-background/50 text-foreground hover:bg-accent"
                     }`}
                   >
-                    Apply Now
+                  Find My Best Offer
                     <ArrowRight
                       size={16}
                       className="transition-transform duration-300 group-hover/btn:translate-x-1"
