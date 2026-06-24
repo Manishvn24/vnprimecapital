@@ -194,7 +194,7 @@ console.log(data);
               className="mt-8 flex w-full lg:max-w-3xl flex-col gap-3 sm:flex-row "
             >
               <form onSubmit={onSubmit}>
-                <div className="flex w-1/2 h-14  overflow-hidden rounded-xl border border-primary bg-background/60 backdrop-blur-sm">
+                <div className="flex w-full h-14  overflow-hidden rounded-xl border border-primary bg-background/60 backdrop-blur-sm">
                   <div className="flex items-center border-2 border-black px-4 text-sm font-semibold text-muted-foreground">
                     +91
                   </div>
@@ -218,7 +218,7 @@ console.log(data);
                     ) : isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Finding Best Offers...
+                        Funding loading...
                       </>
                     ) : (
                       "Check My Offer🎉"
