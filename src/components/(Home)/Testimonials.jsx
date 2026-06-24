@@ -103,8 +103,8 @@ export default function Testimonials() {
         </div>
         {/* Reviews Link */}
         <div className="mt-10 text-center">
-          <span className="border-b-2 border-primary pb-2 text-base font-semibold text-primary">
-            500+ Successful Loan Approvals
+          <span className=" border-b-2 border-muted-foreground text-md text-muted-foreground">
+            1000+ Successful Loan Approvals
           </span>
         </div>
         <div>

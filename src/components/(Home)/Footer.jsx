@@ -87,9 +87,9 @@ export default function Footer() {
               />
 
               <FooterLink
-                href="mailto:info@vnprimecapital.com"
+                href="mailto:nikhil@vnprimecapital.com"
                 icon={Mail}
-                text="info@vnprimecapital.com"
+                text="nikhil@vnprimecapital.com"
               />
               <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                 <LocationEditIcon size={14} className="text-primary" />

@@ -42,16 +42,16 @@ const contactItems = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "info@vnprimecapital.com",
+    value: "nikhil@vnprimecapital.com",
     sub: "We reply within 2 hours",
-    href: "mailto:info@vnprimecapital.com",
+    href: "mailto:nikhil@vnprimecapital.com",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Jabapur",
     sub: "Pan-India Loan Services",
-    href: "#",
+    href: "https://maps.app.goo.gl/6QratwzhTt7XfYbYA",
   },
 ];
 

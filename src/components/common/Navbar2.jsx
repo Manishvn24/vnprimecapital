@@ -29,6 +29,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Header from "./Header";
+import { toast } from "sonner";
 
 const Navbar2 = ({
   logo = {
@@ -105,15 +106,19 @@ const Navbar2 = ({
   auth = {
     login: {
       title: "Login",
-      url: "/login",
+      url: "/#",
     },
 
     signup: {
       title: "Sign Up",
-      url: "/register",
+      url: "/#",
     },
   },
 }) => {
+
+  const handleClick = (e)=>{
+    toast.message("comming soon")
+  }
   return (
     <>
       <div className="fixed inset-x-0 z-50">
@@ -154,8 +159,8 @@ const Navbar2 = ({
               </div>
 
               <div className="flex items-center gap-3">
-                <Button variant="outline" asChild>
-                  <Link href={auth.login.url}>{auth.login.title}</Link>
+                <Button variant="outline" asChild onClick={handleClick}>
+                  <Link  href={auth.login.url}>{auth.login.title}</Link>
                 </Button>
 
                 <Button asChild>
@@ -231,10 +236,8 @@ const Navbar2 = ({
                     </Accordion>
 
                     <div className="flex flex-col gap-3">
-                      <Button variant="outline" asChild>
-                        <Link href={auth.login.url}>{auth.login.title}</Link>
+                      <Button variant="outline" asChild onClick={handleClick}>
                       </Button>
-
                       <Button asChild>
                         <Link href={auth.signup.url}>{auth.signup.title}</Link>
                       </Button>
@@ -249,6 +252,7 @@ const Navbar2 = ({
     </>
   );
 };
+
 
 function renderMenuItem(item) {
   if (item.items) {

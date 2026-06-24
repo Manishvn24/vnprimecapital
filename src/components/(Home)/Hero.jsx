@@ -2,15 +2,22 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import Stepper from "../Stepper";
 import TextType from "../TextType";
-import BorderGlow from "../BorderGlow";
-import StarBorder from "../StarBorder";
-import CheckEligiblity, { PhoneNumberSubmition } from "./CheckEligiblity";
+import Link from "next/link";
+import { Input } from "../ui/input";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { Field, FieldLabel } from "@/components/ui/field";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { phoneSchema } from "@/zod/zod";
 
+const PHRASES = [
+  "premium lenders",
+  "faster approvals",
+  "exclusive rates",
+  "zero paperwork",
+];
 
-
-const PHRASES = ["faster approvals", "smarter financing", "trusted lenders"];
 const textVariants = {
   initial: {
     opacity: 0,
@@ -27,6 +34,59 @@ const textVariants = {
 };
 
 export default function HeroSection() {
+const router = useRouter();
+const [result, setResult] = useState("");
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+ const onSubmit = async (event) => {
+   event.preventDefault();
+
+   setIsSubmitting(true);
+   setResult("Sending...");
+
+   try {
+     const formData = new FormData(event.target);
+
+     const phone = formData.get("phone");
+
+     const validation = phoneSchema.safeParse({
+       phone,
+     });
+
+     if (!validation.success) {
+       setResult(validation.error.errors[0].message);
+       setIsSubmitting(false);
+       return;
+     }
+     formData.append("access_key", "701addc5-3cea-4812-9048-62c6f21599c1");
+
+     const response = await fetch("https://api.web3forms.com/submit", {
+       method: "POST",
+       body: formData,
+     });
+
+     const data = await response.json();
+console.log("Form Data:");
+console.log([...formData.entries()]);
+console.log("Web3Forms Response:");
+console.log(data);
+     if (data.success) {
+       setResult("Submitted Successfully ✅");
+       event.target.reset();
+       setTimeout(() => {
+         router.push("/thankyou");
+       }, 1000);
+     } else {
+       setResult("Error");
+     }
+   } catch (error) {
+     setResult("Something went wrong");
+   } finally {
+     setIsSubmitting(false);
+   }
+ };
+
+
   const [currentPhrase, setCurrentPhrase] = useState(0);
 
   useEffect(() => {
@@ -38,7 +98,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-background pt-24">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-background md:pt-24">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Blue Glow */}
@@ -54,9 +114,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,var(--background)_75%)]" />
       </div>
 
-      <div className="pt-12 container px-3.5 sm:px-6 lg:px-8flex items-center  relative z-10 mx-auto flex">
-        <div className="flex flex-col items-center text-center gap-12 lg:flex-row lg:items-center lg:justify-between lg:text-left">
-          <div className="max-w-7xl">
+      <div className="pt-12 container px-3.5 sm:px-6 lg:px-8  items-center  relative z-10 mx-auto flex ">
+        <div className="flex flex-col items-center text-center gap-12 lg:flex-row lg:items-center lg:justify-between lg:text-left ">
+          <div className="max-w-7xl ">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -67,12 +127,11 @@ export default function HeroSection() {
               <span className="text-xs uppercase tracking-balance text-muted-foreground">
                 ⚡ Instant Funding For Every Need
               </span>
-  
             </motion.div>
 
             {/* Heading */}
             <div className="mb-8">
-              <h1 className="flex flex-col gap-1 sm:gap-2 md:gap-3 max-w-5xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+              <h1 className="flex flex-col gap-1 sm:gap-2 md:gap-3 max-w-5xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-7xl md:text-6xl lg:text-7xl xl:text-8xl">
                 {/* Static line */}
                 <motion.span
                   initial={{ opacity: 0, y: 25 }}
@@ -90,11 +149,7 @@ export default function HeroSection() {
                 <span className="relative inline-block min-w-[16ch] text-primary ">
                   <div className="absolute inset-0">
                     <TextType
-                      text={[
-                        "faster approvals",
-                        "smarter financing",
-                        "trusted lenders",
-                      ]}
+                      text={PHRASES}
                       typingSpeed={75}
                       pauseDuration={1500}
                       showCursor
@@ -121,10 +176,11 @@ export default function HeroSection() {
                 delay: 0.3,
                 duration: 0.8,
               }}
-              className="pt-2 px-3 max-w-xl text-base leading-relaxed text-muted-foreground text-justify sm:text-lg md:text-xl"
+              className="pt-2 px-3 max-w-xl text-base leading-tight text-muted-foreground text-justify sm:text-lg md:text-xl"
             >
-              Compare loan offers from trusted banks and NBFCs. Fast approvals,
-              expert guidance, and a seamless experience.
+              Compare personalized loan offers from multiple lenders in minutes.
+              Check your eligibility, estimated rates, and available options
+              before you apply.
             </motion.p>
 
             {/* CTA */}
@@ -135,26 +191,60 @@ export default function HeroSection() {
                 delay: 0.5,
                 duration: 0.7,
               }}
-              className="mt-8 flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
+              className="mt-8 flex w-full lg:max-w-3xl flex-col gap-3 sm:flex-row "
             >
-              <Button
-                size="lg"
-                className="h-14 w-full sm:w-auto rounded-xl px-8 text-base font-semibold shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-              >
-                Apply Now
-              </Button>
+              <form onSubmit={onSubmit}>
+                <div className="flex w-1/2 h-14  overflow-hidden rounded-xl border border-primary bg-background/60 backdrop-blur-sm">
+                  <div className="flex items-center border-2 border-black px-4 text-sm font-semibold text-muted-foreground">
+                    +91
+                  </div>
+
+                  <Input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter mobile number"
+                    className="h-full px-4 border-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                    required
+                  />
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="h-full rounded-none px-6 font-semibold"
+                  >
+                    {" "}
+                    {result === "Submitted Successfully ✅" ? (
+                      "Submitted ✓"
+                    ) : isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Finding Best Offers...
+                      </>
+                    ) : (
+                      "Check My Offer🎉"
+                    )}
+                  </Button>
+                </div>
+                <p className="mt-3 text-center text-xs text-muted-foreground ">
+                  No paperwork • Multiple lenders • Quick response
+                </p>
+                <span>{result}</span>
+              </form>
 
               <Button
+                asChild
                 size="lg"
                 variant="outline"
-                className="h-14 w-full sm:w-auto rounded-xl border-border bg-background/40 px-8 text-base font-semibold backdrop-blur-sm transition-all duration-300 hover:bg-foreground hover:text-background"
+                className="h-14 rounded-xl border border-accent bg-background/40 px-8 text-base font-semibold backdrop-blur-sm transition-all duration-300 hover:bg-foreground hover:text-background"
               >
-                Talk to an Expert
+                <Link href="https://wa.me/916265118905?text=Hi,%20I%20would%20like%20to%20check%20best%20loan%20offers%20for%20me.">
+                  Get Expert Guidance
+                </Link>
               </Button>
             </motion.div>
 
             {/* Mobile Lead Form */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -183,7 +273,7 @@ export default function HeroSection() {
                   No paperwork • Multiple lenders • Quick response
                 </p>
               </form>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
         <motion.span
@@ -194,11 +284,7 @@ export default function HeroSection() {
             ease: "easeOut",
             delay: 0.8,
           }}
-        >
-          <div className="hidden lg:block">
-            <PhoneNumberSubmition/>
-          </div>
-        </motion.span>
+        ></motion.span>
       </div>
     </section>
   );

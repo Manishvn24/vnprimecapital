@@ -14,80 +14,63 @@ import { motion } from "framer-motion";
 import Masonry from "../Masonry";
 
 const items = [
-  {
-    id: "1",
-    img: "/collage/building.avif",
-    url: "https://example.com/one",
-    height: 250,
-  },
-  {
-    id: "10",
-    img: "/collage/airplane.avif",
-    url: "https://example.com/three",
-    height: 600,
-  },
+
   {
     id: "2",
     img: "/collage/class1.avif",
-    url: "https://example.com/two",
     height: 250,
+    text: "Teacher"
   },
   {
     id: "3",
     img: "/collage/smilingdr.avif",
-    url: "https://example.com/three",
     height: 300,
+    text : "Clinic and Hospitals"
   },
   {
     id: "4",
     img: "/collage/newspaper.avif",
-    url: "https://example.com/three",
     height: 400,
+    text : "Business"
   },
   {
     id: "5",
     img: "/collage/drgirl.avif",
-    url: "https://example.com/three",
     height: 350,
+    text : "Doctors"
   },
   {
     id: "6",
     img: "/collage/engineer.avif",
-    url: "https://example.com/three",
     height: 400,
+    text : "Salaried Person & Professionals"
   },
   {
     id: "7",
     img: "/collage/startup1.avif",
-    url: "https://example.com/three",
     height: 300,
+    text : "Startup"
   },
 
   {
     id: "12",
-    img: "/collage/spectro.avif",
-    url: "https://example.com/three",
+    img: "/collage/smallbusiness.avif",
     height: 400,
+    text : "MSME"
   },
 
   {
     id: "9",
     img: "/collage/newhouse.avif",
-    url: "https://example.com/three",
     height: 400,
+    text : "Home Loan"
   },
 
   {
-    id: "11",
-    img: "/collage/bike.avif",
-    url: "https://example.com/three",
-    height:350,
-  },
-  {
     id: "13",
     img: "/collage/student.avif",
-    url: "https://example.com/three",
     height: 250,
+    text : "Education Loan"
   },
 ];
 
@@ -239,7 +222,10 @@ export default function WhoWeServe() {
   const { ref, inView } = useInView();
 
   return (
-    <section id="who-we-serve" className="relative bg-background py-12 hidden md:block lg:block">
+    <section
+      id="who-we-serve"
+      className="relative bg-background py-12"
+    >
       {/* Background Effects */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Glow */}
@@ -260,9 +246,9 @@ export default function WhoWeServe() {
           </div>
           {/* Heading */}
           <h2 className="mb-5 text-4xl font-bold leading-tight text-foreground sm:text-5xl">
-            Loans Designed for{" "}
+            Supporting Ambitions Across{"  "}
             <span className="bg-gradient-to-r from-primary to-accent-foreground bg-clip-text text-transparent">
-              Every Achiever
+            Every Profession
             </span>
           </h2>
 
@@ -272,10 +258,10 @@ export default function WhoWeServe() {
             the right financial solution waiting for you.
           </p>
         </div>
-        <div className="h-150">
+        <div className="">
           {" "}
           {/* Cards */}
-          <div className="relative w-full">
+          <div className="relative w-full hidden md:block">
             <Masonry
               items={items}
               ease="power3.out"
@@ -287,6 +273,21 @@ export default function WhoWeServe() {
               blurToFocus
               colorShiftOnHover={false}
             />
+          </div>
+          <div className="grid grid-cols-2 gap-2 md:hidden">
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className="overflow-hidden rounded-xl"
+                style={{ height: item.height * 0.5 }}
+              >
+                <img
+                  src={item.img}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

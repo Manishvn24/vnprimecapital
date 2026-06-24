@@ -84,27 +84,7 @@ function LogoRow({ reverse = false, duration = 30 }) {
 
 export default function BankLogoTicker() {
   return (
-    // <section className="relative overflow-hidden bg-background ">
-
-    //   <div className="relative z-10 mx-auto max-w-7xl">
-    //     {/* Fade Left */}
-    //     <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-background to-transparent" />
-    //     {/* Fade Right */}
-    //     <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-background to-transparent" />
-    //     {/* Row 1 */}
-    //     <LogoRow duration={28} />
-    //   </div>
-
-    // </section>
     <section className="relative overflow-hidden bg-background">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-[-10%] top-0 h-[350px] w-[350px] rounded-full bg-primary/10 blur-3xl" />
-
-        <div className="absolute bottom-0 right-[-10%] h-[300px] w-[300px] rounded-full bg-accent/10 blur-3xl" />
-
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
-      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Header */}

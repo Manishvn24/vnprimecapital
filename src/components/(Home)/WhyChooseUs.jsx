@@ -24,9 +24,9 @@ const reasons = [
   },
   {
     icon: FileCheck,
-    title: "Minimal Paperwork",
+    title: "Zero Paperwork",
     description:
-      "Forget the pile of documents. We work with digital documents and minimal physical paperwork.",
+      "Forget the pile of documents. We work with digital documents and zero physical paperwork.",
     stat: "3 Docs",
     statLabel: "Max Required",
   },
@@ -38,30 +38,7 @@ const reasons = [
     stat: "100%",
     statLabel: "Digital",
   },
-  {
-    icon: Home,
-    title: "Apply From Home",
-    description:
-      "Submit your application from your couch. We bring the loan process to your fingertips.",
-    stat: "24/7",
-    statLabel: "Available",
-  },
-  {
-    icon: Shield,
-    title: "Trusted & Secure",
-    description:
-      "Your data is protected with bank-grade security and verified DSA partnerships.",
-    stat: "SSL",
-    statLabel: "Encrypted",
-  },
-  {
-    icon: Clock,
-    title: "Expert Support",
-    description:
-      "Real loan experts guide you through every step — no bots, no confusion.",
-    stat: "6 Days",
-    statLabel: "Support",
-  },
+
 ];
 
 

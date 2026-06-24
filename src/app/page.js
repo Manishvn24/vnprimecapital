@@ -11,30 +11,18 @@ import WhyChooseUs from "@/components/(Home)/WhyChooseUs"
 import Navbar from "@/components/common/Navbar"
 import { Navbar2 } from "@/components/common/Navbar2"
 import SplashCursor from "@/components/common/SplashCursor"
+import WhatsAppFloat from "@/components/common/Whatsappflot"
 
 
 const page = () => {
   return (
       <div>
-      <SplashCursor
-        DENSITY_DISSIPATION={3}
-        VELOCITY_DISSIPATION={2}
-        PRESSURE={0.08}
-        CURL={2}r
-        SPLAT_RADIUS={0.12}
-        SPLAT_FORCE={4000}
-        COLOR_UPDATE_SPEED={8}
-        SHADING
-        RAINBOW_MODE={false}
-        COLOR="#2563EB"np 
-      />
       <Navbar2/>
       <Hero />
       <BankLogoTicker />
       <LoanServices />
       <WhyChooseUs />
       <WhoWeServe/>
-      <TimelineStepper/>
       <Testimonials/>
       <Contact/>
       <Footer/>
